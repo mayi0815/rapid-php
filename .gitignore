@@ -1,0 +1,11 @@
+/.idea
+
+.DS_Store
+
+build/view
+
+log/
+
+*.sql
+
+!rapid-php.sql

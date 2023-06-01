@@ -1,0 +1,82 @@
+{
+  "name": "wgx954418992/rapid-php",
+  "version": "4.0.1",
+  "description": "Fast, simple and practical php framework",
+  "keywords": [
+    "framework",
+    "rapidphp",
+    "restful",
+    "fastapi",
+    "api"
+  ],
+  "homepage": "https://www.rapid-framework.com/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Renew",
+      "email": "wgx954418992@qq.com"
+    }
+  ],
+  "require": {
+    "ext-zip": "*",
+    "ext-json": "*",
+    "ext-fileinfo": "*",
+    "ext-openssl": "*",
+    "ext-curl": "*",
+    "ext-pdo": "*",
+    "ext-dom": "*",
+    "ext-xsl": "*",
+    "ext-libxml": "*",
+    "wgx954418992/rapid-framework": "dev-master",
+    "aliyuncs/oss-sdk-php": "^2.4",
+    "giggsey/libphonenumber-for-php": "^8.12",
+    "endroid/qr-code": "4.1.0",
+    "php-ffmpeg/php-ffmpeg": "^0.19.0",
+    "alipaysdk/easysdk": "^2.2",
+    "alibabacloud/sdk": "^1.8"
+  },
+  "require-dev": {
+    "eaglewu/swoole-ide-helper": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "oss\\": "apps/oss/",
+      "pay\\": "apps/pay/",
+      "oauth2\\": "apps/oauth2/",
+      "wxsdk\\": "apps/wxsdk/",
+      "apps\\": "apps/",
+      "script\\": "scripts/"
+    }
+  },
+  "scripts": {
+    "generator-model-php": [
+      "php scripts/model/index.php php --conf='${PATH_ROOT}apps/core/application.yaml ${PATH_ROOT}.script.yaml' --key=model.php.app"
+    ],
+    "generator-model-java": [
+      "php scripts/model/index.php java --conf='${PATH_ROOT}apps/core/application.yaml ${PATH_ROOT}.script.yaml' --key=model.java.app"
+    ],
+    "generator-model-swift": [
+      "php scripts/model/index.php swift --conf='${PATH_ROOT}apps/core/application.yaml ${PATH_ROOT}.script.yaml' --key=model.swift.app"
+    ],
+    "php-conver-wrapper-to-java": [
+      "php scripts/convert/index.php java --conf='${PATH_ROOT}apps/core/application.yaml ${PATH_ROOT}.script.yaml' --key=convert.java.wrapper"
+    ],
+    "php-conver-wrapper-to-swift": [
+      "php scripts/convert/index.php swift --conf='${PATH_ROOT}apps/core/application.yaml ${PATH_ROOT}.script.yaml' --key=convert.swift.wrapper"
+    ],
+    "php-conver-bean-to-java": [
+      "php scripts/convert/index.php java --conf='${PATH_ROOT}apps/core/application.yaml ${PATH_ROOT}.script.yaml' --key=convert.java.wrapper"
+    ],
+    "php-conver-bean-to-swift": [
+      "php scripts/convert/index.php swift --conf='${PATH_ROOT}apps/core/application.yaml ${PATH_ROOT}.script.yaml' --key=convert.swift.wrapper"
+    ],
+    "docker-run": [
+      "./scripts/docker/rapid-php"
+    ]
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  }
+}

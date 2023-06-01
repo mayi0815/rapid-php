@@ -1,0 +1,44 @@
+{
+  "name": "mayi0815/rapid-framework",
+  "version": "4.0.1",
+  "description": "Fast, simple and practical php framework",
+  "keywords": [
+    "framework",
+    "rapidphp",
+    "restful",
+    "fastapi",
+    "api"
+  ],
+  "homepage": "https://www.rapid-framework.com/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "mayi",
+      "email": "mayi@orange.fr"
+    }
+  ],
+  "require": {
+    "php": ">=7.2.0",
+    "monolog/monolog": "^1.26",
+    "mustangostang/spyc": "0.6.3",
+    "voku/anti-xss": "4.1",
+    "mayi0815/php-enum": "^1.20"
+  },
+  "require-dev": {
+    "eaglewu/swoole-ide-helper": "dev-master",
+    "phpunit/phpunit": "7.0"
+  },
+  "autoload": {
+    "files": [],
+    "psr-4": {
+      "rapidPHP\\": "src/rapidPHP/"
+    }
+  },
+  "scripts": {
+
+  },
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  }
+}

@@ -1,0 +1,126 @@
+application:
+  scans:
+    controller:
+      - '${PATH_APP}classier/controller/'
+  web:
+    view:
+      template_path: '${PATH_APP}classier/view/'
+      cache_path: '${PATH_APP}runtime/build/view/'
+server:
+  cgi:
+    session:
+      key: PHPSESSID
+      service: >
+        apps\app\classier\service\SessionService
+    context: >
+      apps\app\classier\context\WebContext
+  swoole:
+    session:
+      key: PHPSESSID
+      service: >
+        apps\app\classier\service\SessionService
+    context: >
+      apps\app\classier\context\WebContext
+    co:
+      hook_flags: 2147483647
+    options:
+      enable_static_handler: true
+      document_root: '${PATH_APP}public/'
+      reload_async: true
+      enable_coroutine: true
+      package_max_length: 52428800
+      worker_num: 1
+      task_worker_num: 10
+    http:
+      ip: 0.0.0.0
+      port: 1700
+      options:
+        ssl_key_file: null
+        ssl_cert_file: null
+    websocket:
+      ip: 0.0.0.0
+      port: 1701
+      return_key: __c
+      options:
+        ssl_key_file: null
+        ssl_cert_file: null
+        heartbeat_check_interval: 30
+        heartbeat_idle_time: 30
+
+database:
+  sql:
+    master:
+      url: 'mysql://127.0.01:3306/?database=rapid-php&characterCode=utf8mb4'
+      username: root
+      password: null
+    salve: null
+  nosql: null
+
+sms:
+  limit: 60
+  valida: 300
+  universal: 2047
+  service: 'aliyun' # aliyun 、tcloud
+  aliyun:
+    sign:
+      - '短信签名'
+    region: ''
+    access_key_id: ''
+    access_key_secret: ''
+    template:
+      domestic:
+        ${\apps\core\classier\enum\CodeType::LOGIN}: 'SMS_236325159'
+        ${\apps\core\classier\enum\CodeType::BIND_TELEPHONE}: 'SMS_236325159'
+        ${\apps\core\classier\enum\CodeType::CHANGE_VERIFY}: 'SMS_236325159'
+        ${\apps\core\classier\enum\CodeType::CHANGE_TELEPHONE}: 'SMS_236325159'
+
+wechat:
+  mini:
+    appid: ''
+    secret: ''
+
+pay:
+  wechat:
+    appid: ''
+    secret: ''
+    key: ''
+    mch_id: ''
+    sign_type: 'MD5'
+    notify_url: 'https://localhost/pay/notify/wechat'
+    ssl_cert_path: '${PATH_ROOT}apps/core/certificate/wechat/pay/apiclient_cert.pem'
+    ssl_key_path: '${PATH_ROOT}apps/core/certificate/wechat/pay/apiclient_key.pem'
+
+file:
+  service: 'local' # local 、oss
+
+ocr:
+  baidu:
+    appid: ''
+    app_key: ''
+    secret: ''
+
+speech:
+  aliyun:
+    access_key_id: ''
+    access_key_secret: ''
+    app_key: ''
+    wss: ''
+
+oss:
+  service: 'aliyun' # aliyun、baidu
+  aliyun:
+    accessKeyId: ''
+    secret: ''
+    endpoint: 'https://oss-cn-hangzhou.aliyuncs.com'
+    bucket: 'bucket-name'
+    callback:
+      callbackUrl: 'http://localhost/rapid-php/apps/file/public/oss/aliyun/callback'
+      callbackBody: 'bucket=#{bucket}&object=#{object}&etag=#{etag}&size=#{size}&mimeType=#{mimeType}&imageInfo.height=#{imageInfo.height}&imageInfo.width=#{imageInfo.width}&imageInfo.format=#{imageInfo.format}'
+  baidu:
+    accessKey: ''
+    secretKey: ''
+    endpoint: ''
+    bucket: ''
+    callback:
+      callbackUrl: ''
+      callbackBody: ''
