@@ -1,5 +1,5 @@
 ﻿RapidPHP
-===============
+================
 
 RapidPHP is a free, open-source, fast, efficient, and simple object-oriented lightweight PHP development framework.
 
